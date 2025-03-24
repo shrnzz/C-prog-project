@@ -31,6 +31,7 @@ int isLeapYear (int year);
 
 // main function calls on void; add user input 
 int main (void) {
-    int year;
+    int year, daycode, leapyear;
 
+    printf("\n");
 }
