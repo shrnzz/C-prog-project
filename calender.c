@@ -31,8 +31,4 @@ int isLeapYear (int year);
 //function for calender (void calender)
 
 // main function calls on void; add user input 
-int main (void) {
-    int year, daycode, leapyear;
 
-    printf("\n");
-}
