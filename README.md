@@ -11,8 +11,6 @@ This code creates a calender that will visualize in the console.
 
 (code)
 
-This is the cool 
-
 There will be certain functions that will read and store input into memory to be called upon.
 
 (code)
