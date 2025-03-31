@@ -62,6 +62,8 @@ for (int month = 1; month <= 12; month++){
     printf("\n");
     dayCode = (dayCode + monthLength[month]) % 7; // update daycode for the next month 
 }
+}
+
 
 
 
