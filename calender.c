@@ -47,12 +47,12 @@ for (int month = 1; month <= 12; month++){
     printf(" Sun Mon Tue Wed Thu Fri Sat\n");
 
     for (int i = 0; i < dayCode; i++){
-        printf("  ");
+        printf("    ");
     }
 
 //print the days of the month 
     for (int day = 1; day <= monthLength[month]; day++){
-        printf("%5d", day);
+        printf("%4d", day);
 
         if ((day + dayCode) % 7 == 0){
          printf("\n"); // new line for the next week 
