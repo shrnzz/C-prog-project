@@ -22,7 +22,7 @@ int isLeapYear (int year);
     }
 }
 
-//method for year input
+// functions for year input
 
 //method daycode
 
@@ -32,3 +32,4 @@ int isLeapYear (int year);
 
 // main function calls on void; add user input 
 
+// professor said sturctures might be better than methods 
