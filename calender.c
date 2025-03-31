@@ -2,6 +2,8 @@
 #include <string.h>
 
 //Define booleans: TRUE 1, FALSE 0
+#define TRUE 1
+#define FALSE 0
 
 // update to something more simple along the way (pointers, abbreviations, etc)
 int monthLength[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
