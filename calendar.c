@@ -10,13 +10,25 @@
 char *months[] = {" ", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
 //method for leap year (february)
-int isLeapYear (int year){
+int IsLeapYear (int year){
+    
     return(year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
 
 //function for daycode, must use zellers formula to calculate first day of the year 
-int getDayCode (int year) {
+int GetDayCode (int year) {
+    //int q =1;
+    //int m = 13;
+    //int Y(year) =year -1;
+    //int K(yearPart) = Y % 100;
+    //int J(centry) = Y /100;
+    
+    //int h(daycode) = (q+(13*(m+1))/5+K+(K/4)+(J/4)+(5*J))%7;
+
+    //int daycode = (h+6)%7
+    //return daycode 
+
     int dayCode;
     int century = year / 100;
     int yearPart = year % 100;
@@ -31,16 +43,16 @@ int getDayCode (int year) {
 }
 
 // function to print calendar 
-void printCalendar(int year) {
+void DisplayCalendar(int year) {
     int monthLength[]= {0,31,28,31,30,31,30,31,31,30,31,30,31};
 
 // update for leap year (fenruary)
-    if (isLeapYear(year)){
+    if (IsLeapYear(year)){
         monthLength[2] = 29;
     }
 
 //get starting day of the year
-int dayCode = getDayCode(year); 
+int dayCode = GetDayCode(year); 
 
 for (int month = 1; month <= 12; month++){
     printf("\n\n------------ %s %d ------------\n", months[month], year); // /033[  <-- use this after \n for escape sequences
@@ -63,19 +75,14 @@ for (int month = 1; month <= 12; month++){
     dayCode = (dayCode + monthLength[month]) % 7; // update daycode for the next month 
 }
 }
-
-
-
-
-//main function 
-// i think we need to move this main method to the main file so that there is only one main method 
-int main (){
+ 
+char * PrintCalendar(){
     int year;
 
     printf("Enter year: ");
     scanf("%d", &year);
 
-    printCalendar(year);
+    DisplayCalendar(year);
 
     return 0;
 }

@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include "calendar.c"  
+#include "events.c"  
 
 int main (void) {
     int year, leapyear;
-    int *daycode;
+    int daycode;
     int menuChoice = 0;
 
     
@@ -15,6 +17,7 @@ int main (void) {
         if(menuChoice == 1){
             printf("Enter a day in the following form: 01/01/2001\n");
             scanf("%d", &daycode); //input daycode
+           //printf("%s", PrintCalendar());
         }
         else if(menuChoice == 2){
             printf("Enter day code in the following form: 01/01/2001\n");
