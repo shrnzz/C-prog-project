@@ -68,6 +68,7 @@ for (int month = 1; month <= 12; month++){
 
 
 //main function 
+// i think we need to move this main method to the main file so that there is only one main method 
 int main (){
     int year;
 
