@@ -76,15 +76,15 @@ for (int month = 1; month <= 12; month++){
 }
 }
  
-char * PrintCalendar(){
+void PrintCalendar(){
     int year;
 
     printf("Enter year: ");
     scanf("%d", &year);
 
     DisplayCalendar(year);
-
-    return 0;
+    //change this so it only prints one month
+    
 }
 
 // professor said sturctures might be better than methods 

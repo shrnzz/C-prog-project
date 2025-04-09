@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "calendar.c"  
 #include "events.c"  
 
@@ -6,6 +7,7 @@ int main (void) {
     int year, leapyear;
     int daycode;
     int menuChoice = 0;
+    char dateInput[11];
 
     
 
@@ -15,12 +17,14 @@ int main (void) {
         scanf("%d", &menuChoice);
 
         if(menuChoice == 1){
-            printf("Enter a day in the following form: 01/01/2001\n");
+            printf("Enter a day in the following form: MM/DD/YYYY\n");
+            fgets(dateInput, sizeof(dateInput), stdin);
             scanf("%d", &daycode); //input daycode
-           //printf("%s", PrintCalendar());
+
+           PrintCalendar();
         }
         else if(menuChoice == 2){
-            printf("Enter day code in the following form: 01/01/2001\n");
+            printf("Enter day code in the following form: MM/DD/YYYY\n");
             scanf("%d", &daycode); //get daycode 
         }
         else if(menuChoice != 3){
