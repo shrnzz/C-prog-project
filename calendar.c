@@ -54,28 +54,59 @@ void DisplayCalendar(int year) {
 //get starting day of the year
 int dayCode = GetDayCode(year); 
 
-for (int month = 1; month <= 12; month++){
-    printf("\n\n------------ %s %d ------------\n", months[month], year); // /033[  <-- use this after \n for escape sequences
+    for (int month = 1; month <= 12; month++){
+        printf("\n\n------------ %s %d ------------\n", months[month], year); // /033[  <-- use this after \n for escape sequences
+        printf(" Sun Mon Tue Wed Thu Fri Sat\n");
+
+        for (int i = 0; i < dayCode; i++){
+            printf("    ");
+        }
+
+    //print the days of the month 
+        for (int day = 1; day <= monthLength[month]; day++){
+            printf("%4d", day);
+
+            if ((day + dayCode) % 7 == 0){
+            printf("\n"); // new line for the next week 
+            }
+        }
+
+        printf("\n");
+        dayCode = (dayCode + monthLength[month]) % 7; // update daycode for the next month 
+    }
+}
+
+//function to print a specific month 
+void PrintMonth(int year, int month){
+    int monthLength[]= {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (IsLeapYear(year)){
+        monthLength[2] = 29;
+    }
+
+    int dayCode = GetDayCode(year);
+
+    for(int i = 1; i < month; i++){
+        dayCode = (dayCode + monthLength[i]) % 7;
+    }
+
+    printf("\n\n------------ %s %d ------------\n", months[month], year);
     printf(" Sun Mon Tue Wed Thu Fri Sat\n");
 
-    for (int i = 0; i < dayCode; i++){
+    for(int i = 0; i < dayCode; i++){
         printf("    ");
     }
 
-//print the days of the month 
     for (int day = 1; day <= monthLength[month]; day++){
         printf("%4d", day);
 
-        if ((day + dayCode) % 7 == 0){
-         printf("\n"); // new line for the next week 
+        if((day + dayCode) % 7 == 0){
+            printf("\n");
         }
     }
 
     printf("\n");
-    dayCode = (dayCode + monthLength[month]) % 7; // update daycode for the next month 
 }
-}
- 
+
 void PrintCalendar(){
     int year;
 

@@ -4,28 +4,61 @@
 #include "events.c"  
 
 int main (void) {
-    int year, leapyear;
+    int year, month, leapyear;
     int daycode;
     int menuChoice = 0;
     char dateInput[11];
 
     
-
+    // below is the code for a menu where users will have options to choose from 
     while(menuChoice != 3){
         printf("Option 1: Enter Event\nOption 2: Look up Event\nOption 3: Exit\n");
         printf("Enter an option ");
         scanf("%d", &menuChoice);
 
         if(menuChoice == 1){
-            printf("Enter a day in the following form: MM/DD/YYYY\n");
-            fgets(dateInput, sizeof(dateInput), stdin);
-            scanf("%d", &daycode); //input daycode
+            int month, day, year;
+            char description[200];
 
-           PrintCalendar();
+            printf("Enter a date in the following form: MM/DD/YYYY\n");
+            scanf("%s", dateInput);
+
+            sscanf(dateInput, "%d/%d/%d", &month, &day, &year); //sscanf will read from a strinf already in memory
+
+            //validating month
+            if (month < 1 || month > 12 || day < 1 || day > 31 || year < 1000){
+                printf("Invalid date!\n");
+                continue;
+            } 
+
+            //format date
+            char formattedDate[11];
+            snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
+            
+            printf("Enter events description: \n");
+            getchar();
+            fgets(description, sizeof(description), stdin);
+            description[strcspn(description, "\n")] = '\0';
+
+            AddingEvent(dateInput, description);
+            PrintMonth(year, month);
         }
         else if(menuChoice == 2){
-            printf("Enter day code in the following form: MM/DD/YYYY\n");
-            scanf("%d", &daycode); //get daycode 
+            printf("Enter day to search event in this form: MM/DD/YYYY\n");
+            scanf("%s", dateInput); 
+            
+            int month, day, year;
+            sscanf(dateInput, "%d/%d/%d", &month, &day, &year);
+
+            if(month < 1 || month > 12 || day < 1 || day > 31 || year < 1000){
+                printf("Invalid date!\n");
+                continue;
+            }
+
+            char formattedDate[11];
+            snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
+
+            SearchingEvent(formattedDate);
         }
         else if(menuChoice != 3){
             printf("Invalid choice: please enter a valid choice\n");
