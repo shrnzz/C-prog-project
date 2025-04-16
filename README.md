@@ -60,7 +60,7 @@ void AddingEvent(const char* date, const char* description) {
 ```
 
 Below is the code for a fucntion that searchs an event stored in the calendar:
-```
+```ruby
 void SearchingEvent(const char* date){
     FILE *file = fopen ("events.txt", "r");
     char line[256];
