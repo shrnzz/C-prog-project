@@ -25,13 +25,13 @@ int main (void) {
 
             sscanf(dateInput, "%d/%d/%d", &month, &day, &year); //sscanf will read from a strinf already in memory
 
-            //validating month
+            //validating month - anything over or under the normal date ranges will send an error
             if (month < 1 || month > 12 || day < 1 || day > 31 || year < 1000){
                 printf("Invalid date!\n");
                 continue;
             } 
 
-            //format date
+            //formats date
             char formattedDate[11];
             snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
             
@@ -40,8 +40,8 @@ int main (void) {
             fgets(description, sizeof(description), stdin);
             description[strcspn(description, "\n")] = '\0';
 
-            AddingEvent(dateInput, description);
-            PrintMonth(year, month);
+            AddingEvent(dateInput, description);  //will store event 
+            PrintMonth(year, month);              //will print calendar to show which day the event is stored 
         }
         else if(menuChoice == 2){
             printf("Enter day to search event in this form: MM/DD/YYYY\n");
@@ -58,8 +58,8 @@ int main (void) {
             char formattedDate[11];
             snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
 
-            SearchingEvent(formattedDate);
-            PrintMonth(year, month);
+            SearchingEvent(formattedDate);      //will display event 
+            PrintMonth(year, month);            //will print calendar to show which day the event is stored
         }
         else if(menuChoice != 3){
             printf("Invalid choice: please enter a valid choice\n");

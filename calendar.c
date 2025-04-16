@@ -107,6 +107,7 @@ void PrintMonth(int year, int month){
     printf("\n");
 }
 
+//this function is not being used at the moment, use for a diff idea in the project
 void PrintCalendar(){
     int year;
 

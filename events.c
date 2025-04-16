@@ -31,6 +31,7 @@ void SearchingEvent(const char* date){
     char line[256];
     int found = 0;
 
+    //if user enter a date that isn't on file; error message will be shown 
     if(file == NULL){
         printf("Sorry! No event files found yet.\n");
         return;
