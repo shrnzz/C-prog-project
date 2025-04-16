@@ -59,6 +59,7 @@ int main (void) {
             snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
 
             SearchingEvent(formattedDate);
+            PrintMonth(year, month);
         }
         else if(menuChoice != 3){
             printf("Invalid choice: please enter a valid choice\n");

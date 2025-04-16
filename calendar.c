@@ -55,7 +55,7 @@ void DisplayCalendar(int year) {
 int dayCode = GetDayCode(year); 
 
     for (int month = 1; month <= 12; month++){
-        printf("\n\n------------ %s %d ------------\n", months[month], year); // /033[  <-- use this after \n for escape sequences
+        printf("\n\n-------- %s %d --------\n", months[month], year); // /033[  <-- use this after \n for escape sequences
         printf(" Sun Mon Tue Wed Thu Fri Sat\n");
 
         for (int i = 0; i < dayCode; i++){
@@ -89,7 +89,7 @@ void PrintMonth(int year, int month){
         dayCode = (dayCode + monthLength[i]) % 7;
     }
 
-    printf("\n\n------------ %s %d ------------\n", months[month], year);
+    printf("\n\n-------- %s %d --------\n", months[month], year);
     printf(" Sun Mon Tue Wed Thu Fri Sat\n");
 
     for(int i = 0; i < dayCode; i++){
