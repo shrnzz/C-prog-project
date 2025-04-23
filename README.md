@@ -7,7 +7,7 @@ Katie and Sahar
 ---
 ---
 ### Project Detials:
-This code creates a calender that will visualize in the console. 
+This code creates a calender that will visualize in the console. The code consists of an array that stores the number of days in a month. It also has loops to check the day code to figure out the month and what date and day the month starts at to print that specific month into the terminal. 
 
 ```ruby
 void PrintMonth(int year, int month){
@@ -41,7 +41,7 @@ void PrintMonth(int year, int month){
 }
 ```
 
-There will be certain functions that will read and store event input into memory to be called upon.
+There will be certain functions that will read and store event input into memory to be called upon. These two functions do exactly that. The AddingEvent function will open the txt file to add and store the event data (user description) into a specific date to be called upon. 
 
 Below is the code for function that adds an event to the calendar:
 ```ruby
@@ -59,7 +59,7 @@ void AddingEvent(const char* date, const char* description) {
 }
 ```
 
-Below is the code for a fucntion that searchs an event stored in the calendar:
+Below is the code for a fucntion that searchs an event stored in the calendar. The SearchingEvent function will literally search and match the date in the event stored in the txt file and print out the event description with the date. If no events are found on that date the program will print out "No events found".
 ```ruby
 void SearchingEvent(const char* date){
     FILE *file = fopen ("events.txt", "r");
