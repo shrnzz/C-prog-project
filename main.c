@@ -67,7 +67,8 @@ int main (void) {
         
     }
 
-    printf("Good bye!\n");
+    PrintCalendar();
+    //printf("Good bye!\n");
 
     return 0;
 }

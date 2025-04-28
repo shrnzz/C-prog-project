@@ -111,8 +111,8 @@ void PrintMonth(int year, int month){
 void PrintCalendar(){
     int year;
 
-    printf("Enter year: ");
-    scanf("%d", &year);
+    //printf("Enter year: "); commenting out to check if calendar prints out on exit option
+    //scanf("%d", &year);
 
     DisplayCalendar(year);
     //change this so it only prints one month
