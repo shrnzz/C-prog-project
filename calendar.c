@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include "events.c"
+#include "events.h"
+//#include <time.h>
+
 
 //Define booleans: TRUE 1, FALSE 0
 #define TRUE 1

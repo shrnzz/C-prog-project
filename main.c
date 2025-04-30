@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "calendar.c"  
-#include "events.c"  
+#include "events.h"  
 
 int main (void) {
     int year, month, leapyear;
