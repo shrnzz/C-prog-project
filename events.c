@@ -17,6 +17,42 @@ typedef struct{
 Event eventList[MAX_EVENTS];
 int eventCount = 0;
 
+void LoadEventDates(){
+    FILE *file =fopen("events.txt", "r");
+    char line[256];
+
+    eventCount = 0;
+
+    if (file == NULL){
+        
+        return;
+    }
+    
+    while (fgets(line, sizeof(line), file) && eventCount < MAX_EVENTS) {
+        char eventDate[11];
+
+        if(sscanf(line, "%10[^|]", eventDate) == 1){
+            strncpy(eventList[eventCount].date, eventDate, 11);
+            eventList[eventCount].date[10] = '\0';
+            eventCount++;
+        }
+    }
+
+    fclose(file);
+}
+
+int HasEvent(int month, int day, int year){
+    char date[11];
+    snprintf(date, sizeof(date), "%02d/%02d,%04d", month, day, year);
+
+    for(int i = 0; i < eventCount; i++){
+        if (strcmp(eventList[i].date, date) == 0){
+            return 1;
+        }
+    }
+
+    return 0;
+}
 
 void AddingEvent(const char* date, const char* description) {
     FILE *file = fopen ("events.txt", "a");  //this is for append mode
