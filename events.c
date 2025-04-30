@@ -43,7 +43,7 @@ void LoadEventDates(){
 
 int HasEvent(int month, int day, int year){
     char date[11];
-    snprintf(date, sizeof(date), "%02d/%02d,%04d", month, day, year);
+    snprintf(date, sizeof(date), "%02d/%02d/%04d", month, day, year);
 
     for(int i = 0; i < eventCount; i++){
         if (strcmp(eventList[i].date, date) == 0){
