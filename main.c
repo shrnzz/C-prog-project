@@ -41,6 +41,7 @@ int main (void) {
             description[strcspn(description, "\n")] = '\0';
 
             AddingEvent(dateInput, description);  //will store event 
+            LoadEventDates();
             PrintMonth(year, month);              //will print calendar to show which day the event is stored 
         }
         else if(menuChoice == 2){
@@ -59,6 +60,7 @@ int main (void) {
             snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
 
             SearchingEvent(formattedDate);      //will display event 
+            LoadEventDates();
             PrintMonth(year, month);            //will print calendar to show which day the event is stored
         }
         else if(menuChoice != 3){
@@ -67,8 +69,8 @@ int main (void) {
         
     }
 
-    PrintCalendar();
-    //printf("Good bye!\n");
+    PrintCalendar(); //prints whole year
+    
 
     return 0;
 }
