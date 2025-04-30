@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "events.h"
-//#include <time.h>
+#include <time.h>
 
 
 //Define booleans: TRUE 1, FALSE 0
@@ -19,30 +19,17 @@ int IsLeapYear (int year){
 }
 
 
-//function for daycode, must use zellers formula to calculate first day of the year 
+//function for daycode, we decided to use the time library and this was what we found after researching 
 int GetDayCode (int year) {
-    //int q =1;
-    //int m = 13;
-    //int Y(year) =year -1;
-    //int K(yearPart) = Y % 100;
-    //int J(centry) = Y /100;
-    
-    //int h(daycode) = (q+(13*(m+1))/5+K+(K/4)+(J/4)+(5*J))%7;
+    struct tm t = {0};
+    t.tm_year = year - 1900;
+    t.tm_mon = 0;
+    t.tm_mday = 1;
 
-    //int daycode = (h+6)%7
-    //return daycode 
+    mktime(&t);
 
-    int dayCode;
-    int century = year / 100;
-    int yearPart = year % 100;
+    return t.tm_wday;
 
-    dayCode = (yearPart + (yearPart / 4) + (century / 4) - (2 * century) + 1 + 5) % 7;
-
-    if (dayCode < 0){
-        dayCode += 7;
-    }
-    
-    return dayCode;
 }
 
 // function to print calendar 
