@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#define MAX_EVENTS 100
 /*
 events from user input will be saved into the events.txt file in the 
 following format:
@@ -10,6 +10,13 @@ MM/DD/YY | Brunch with friends at 1pm.
 */
 
 //Below is the code to add an event
+typedef struct{
+    char date[11];
+} Event;
+
+Event eventList[MAX_EVENTS];
+int eventCount = 0;
+
 
 void AddingEvent(const char* date, const char* description) {
     FILE *file = fopen ("events.txt", "a");  //this is for append mode
