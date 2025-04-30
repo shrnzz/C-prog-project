@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include "calendar.c"  
+#include "calendar.h"  
 #include "events.h"  
+
+//compile using gcc main.c events.c calendar.c -o main and then ./a.out
 
 int main (void) {
     int year, month, leapyear;
