@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "events.c"
 
 //Define booleans: TRUE 1, FALSE 0
 #define TRUE 1
