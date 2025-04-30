@@ -97,7 +97,12 @@ void PrintMonth(int year, int month){
     }
 
     for (int day = 1; day <= monthLength[month]; day++){
-        printf("%4d", day);
+        if(HasEvent(month, day, year)){
+            printf("\033[1;32m%4d\033[0m", day);
+        }
+        else {
+            printf("%4d", day);
+        }
 
         if((day + dayCode) % 7 == 0){
             printf("\n");
