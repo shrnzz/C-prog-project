@@ -109,5 +109,3 @@ void PrintCalendar(){
     DisplayCalendar(year);
     
 }
-
-// professor said sturctures might be better than methods 

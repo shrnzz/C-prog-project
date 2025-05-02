@@ -93,10 +93,12 @@ void SearchingEvent(const char* date){
 
 
 **--Notes**
-This program includes 3 files:
+This program includes the followwing files:
 1. main.c
 2. calendar.c
 3. events.c
--->calendar display (undecided)
--->calendar UI (undecided)
--->other feautures 
+
+header filed:
+1. calendar.h
+2. events.h
+
