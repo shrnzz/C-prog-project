@@ -10,6 +10,7 @@ MM/DD/YY | Brunch with friends at 1pm.
 */
 
 //Below is the code to add an event
+//structure that defines the array of char with size 11
 typedef struct{
     char date[11];
 } Event;
@@ -17,6 +18,7 @@ typedef struct{
 Event eventList[MAX_EVENTS];
 int eventCount = 0;
 
+//function to open and close the text file to save the inputed events 
 void LoadEventDates(){
     FILE *file =fopen("events.txt", "r");
     char line[256];
@@ -27,7 +29,7 @@ void LoadEventDates(){
         
         return;
     }
-    
+    //looks through the events until i finds a match otherwise prints nothing 
     while (fgets(line, sizeof(line), file) && eventCount < MAX_EVENTS) {
         char eventDate[11];
 
@@ -41,6 +43,7 @@ void LoadEventDates(){
     fclose(file);
 }
 
+//function to check if there is an event on a specific date base on the day code
 int HasEvent(int month, int day, int year){
     char date[11];
     snprintf(date, sizeof(date), "%02d/%02d/%04d", month, day, year);
@@ -54,6 +57,7 @@ int HasEvent(int month, int day, int year){
     return 0;
 }
 
+//function to add an event to the txt file and prints event is saved
 void AddingEvent(const char* date, const char* description) {
     FILE *file = fopen ("events.txt", "a");  //this is for append mode
 
@@ -61,14 +65,13 @@ void AddingEvent(const char* date, const char* description) {
         printf("File-Error!\n Unable to open events file.\n");
         return;
     }
-
+    //the format of how the event is saved in the txt file 
     fprintf(file, "%s | %s\n", date, description);
     fclose(file);
     printf("Event is saved!\n");
 }
 
 // Below is the code to search for an event
-
 void SearchingEvent(const char* date){
     FILE *file = fopen ("events.txt", "r");
     char line[256];
@@ -98,15 +101,7 @@ void SearchingEvent(const char* date){
     }
 }
 
-// no need for main here because its just for getters and setter
 
-// method for set daycode from user input 
-
-// method for get daycode 
-
-//method to change color of date on calendar 
-
-// method for somthing i can't think of 
 
 
 

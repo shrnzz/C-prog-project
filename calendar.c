@@ -102,7 +102,7 @@ void PrintMonth(int year, int month){
     printf("\n");
 }
 
-
+//function to print the entire clendar
 void PrintCalendar(){
     int year;
 
