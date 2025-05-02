@@ -107,7 +107,10 @@ void PrintMonth(int year, int month){
         }
     }
 
+    if((monthLength[month] + dayCode) % 7 != 0){
+
     printf("\n");
+    }
 }
 
 //function to print the entire clendar
