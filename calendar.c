@@ -56,7 +56,7 @@ int dayCode = GetDayCode(year);
         for (int day = 1; day <= monthLength[month]; day++){
             printf("%4d", day);
 
-            if ((day + dayCode) % 7 == 0){
+            if ((day + dayCode) % 7 != 0){
             printf("\n"); // new line for the next week 
             }
         }
