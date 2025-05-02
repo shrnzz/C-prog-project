@@ -106,6 +106,9 @@ void PrintMonth(int year, int month){
 void PrintCalendar(){
     int year;
 
+    printf("Enter the year to print full calendar: ");
+    scanf("%d", &year);
+
     DisplayCalendar(year);
     
 }
