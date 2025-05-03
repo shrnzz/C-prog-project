@@ -111,6 +111,8 @@ void PrintMonth(int year, int month){
 
     printf("\n");
     }
+
+    printf("\n");
 }
 
 //function to print the entire clendar

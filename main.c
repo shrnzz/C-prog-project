@@ -15,7 +15,7 @@ int main (void) {
     
     // below is the code for a menu where users will have options to choose from 
     while(menuChoice != 3){
-        printf("\n--- Calendar Menu ---\n");
+        printf("\n\n--- Calendar Menu ---\n");
         printf("Option 1: Enter Event\nOption 2: Look up Event\nOption 3: Exit & print full calendar\n");
         printf("Enter an option ");
         scanf(" %d", &menuChoice);
@@ -24,7 +24,7 @@ int main (void) {
             int month, day, year;
             char description[MAX_DESC];
 
-            printf("Enter a date in the following form: MM/DD/YYYY\n");
+            printf("\nEnter a date in the following form: MM/DD/YYYY\n");
             scanf("%s", dateInput);
 
             sscanf(dateInput, "%d/%d/%d", &month, &day, &year); //sscanf will read from a strinf already in memory
@@ -39,7 +39,7 @@ int main (void) {
             char formattedDate[11];
             snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
             
-            printf("Enter events description: \n");
+            printf("\nEnter events description: \n");
             getchar();
             fgets(description, sizeof(description), stdin);
             description[strcspn(description, "\n")] = '\0';
@@ -47,10 +47,11 @@ int main (void) {
             AddingEvent(formattedDate, description);  //will store event 
             LoadEventDates();
             PrintMonth(year, month);              //will print calendar to show which day the event is stored 
+            printf("\n");
         }
         else if(menuChoice == 2){
             int month, day, year;
-            printf("Enter day to search event in this form: MM/DD/YYYY\n");
+            printf("\nEnter day to search event in this form: MM/DD/YYYY\n");
             scanf("%s", dateInput); 
             
             sscanf(dateInput, "%d/%d/%d", &month, &day, &year);
@@ -66,17 +67,18 @@ int main (void) {
             SearchingEvent(formattedDate);      //will display event 
             LoadEventDates();
             PrintMonth(year, month);            //will print calendar to show which day the event is stored
+            printf("\n");
         }
         else if(menuChoice == 3){
             int year;
-            printf("Enter a year to print full calendar: ");    //Ask user to enter year and print full calendar
+            printf("\nEnter a year to print full calendar: ");    //Ask user to enter year and print full calendar
             scanf("%d", &year);
             LoadEventDates();
             DisplayCalendar(year);
             break;            
         }
         else {
-            printf("Invalid choice: please enter a valid choice\n");
+            printf("\nInvalid choice: please enter a valid choice\n");
         }
         
     }

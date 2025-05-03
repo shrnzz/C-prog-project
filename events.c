@@ -68,7 +68,7 @@ void AddingEvent(const char* date, const char* description) {
     //the format of how the event is saved in the txt file 
     fprintf(file, "%s | %s\n", date, description);
     fclose(file);
-    printf("Event is saved!\n");
+    printf("Event is saved!\n\n");
 }
 
 // Below is the code to search for an event
@@ -88,7 +88,7 @@ void SearchingEvent(const char* date){
 
         if(sscanf(line, "%10[^|] | %199[^\n]", eventDate, eventDescription) == 2){
             if(strcmp(eventDate, date) == 0){
-                printf("Event on %s: %s\n", eventDate, eventDescription);
+                printf("Event on %s: %s\n\n", eventDate, eventDescription);
                 found = 1;
             }
         }
@@ -97,7 +97,7 @@ void SearchingEvent(const char* date){
     fclose(file);
 
     if(!found){
-        printf("No events were found on %s.\n", date);
+        printf("No events were found on %s.\n\n", date);
     }
 }
 
