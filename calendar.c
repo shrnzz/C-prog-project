@@ -55,7 +55,7 @@ int dayCode = GetDayCode(year);
     //print the days of the month 
         for (int day = 1; day <= monthLength[month]; day++){
            if (HasEvent(month, day, year)){
-            printf("\033[1;32m%4d\033[0m", day);
+            printf("\033[32m%4d\033[0m", day);
            }
            else {
             printf("%4d", day);
@@ -96,7 +96,7 @@ void PrintMonth(int year, int month){
 
     for (int day = 1; day <= monthLength[month]; day++){
         if(HasEvent(month, day, year)){
-            printf("\033[1;32m%4d\033[0m", day);
+            printf("\033[32m%4d\033[0m", day);
         }
         else {
             printf("%4d", day);
@@ -114,12 +114,6 @@ void PrintMonth(int year, int month){
 }
 
 //function to print the entire clendar
-void PrintCalendar(){
-    int year;
-
-    printf("Enter the year to print full calendar: ");
-    scanf("%d", &year);
-
+void PrintCalendar(int year){
     DisplayCalendar(year);
-    
 }

@@ -15,11 +15,10 @@ int main (void) {
     
     // below is the code for a menu where users will have options to choose from 
     while(menuChoice != 3){
-        LoadEventDates();
         printf("\n--- Calendar Menu ---\n");
         printf("Option 1: Enter Event\nOption 2: Look up Event\nOption 3: Exit & print full calendar\n");
         printf("Enter an option ");
-        scanf("%d", &menuChoice);
+        scanf(" %d", &menuChoice);
 
         if(menuChoice == 1){
             int month, day, year;
@@ -46,6 +45,7 @@ int main (void) {
             description[strcspn(description, "\n")] = '\0';
 
             AddingEvent(formattedDate, description);  //will store event 
+            LoadEventDates();
             PrintMonth(year, month);              //will print calendar to show which day the event is stored 
         }
         else if(menuChoice == 2){
@@ -64,16 +64,22 @@ int main (void) {
             snprintf(formattedDate, sizeof(formattedDate), "%02d/%02d/%04d", month, day, year);
 
             SearchingEvent(formattedDate);      //will display event 
+            LoadEventDates();
             PrintMonth(year, month);            //will print calendar to show which day the event is stored
         }
-        else if(menuChoice != 3){
+        else if(menuChoice == 3){
+            int year;
+            printf("Enter a year to print full calendar: ");    //Ask user to enter year and print full calendar
+            scanf("%d", &year);
+            LoadEventDates();
+            DisplayCalendar(year);
+            break;            
+        }
+        else {
             printf("Invalid choice: please enter a valid choice\n");
         }
         
     }
-
-    PrintCalendar(); //Ask user to enter year and print full calendar
-    
 
     return 0;
 }

@@ -3,7 +3,7 @@
 
 void DisplayCalendar(int year);
 void PrintMonth(int year, int month);
-void PrintCalendar(void);
+void PrintCalendar(int year);
 int IsLeapYear(int year);
 int GetDayCode(int year);
 
